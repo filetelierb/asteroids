@@ -5,6 +5,9 @@ from asteroid import Asteroid
 from asteroidfield import AsteroidField
 
 def main():
+    print("Starting Asteroids!")
+    print("Screen width:", SCREEN_WIDTH)
+    print("Screen height:", SCREEN_HEIGHT)
     pygame.init()
 
     clock = pygame.time.Clock()
@@ -24,6 +27,10 @@ def main():
         
         screen.fill("black")
         updatable.update(dt)
+        for asteroid in asteroids:
+            if player.check_collision(asteroid):
+                print("Game over!")
+                return
         for this_draw in drawable:
             this_draw.draw(screen)
         pygame.display.flip()
@@ -33,9 +40,7 @@ def main():
                 return
         dt = clock.tick(60) / 1000
 
-    print("Starting Asteroids!")
-    print("Screen width:", SCREEN_WIDTH)
-    print("Screen height:", SCREEN_HEIGHT)
+    
 
 
 if __name__ == "__main__":
