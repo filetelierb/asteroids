@@ -13,7 +13,7 @@ def main():
     while True:
         
         screen.fill("black")
-        player.rotate(dt)
+        player.update(dt)
         player.draw(screen)
         pygame.display.flip()
         
