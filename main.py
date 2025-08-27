@@ -17,7 +17,8 @@ def main():
         
         screen.fill("black")
         updatable.update(dt)
-        drawable.draw(screen)
+        for this_draw in drawable:
+            this_draw.draw(screen)
         pygame.display.flip()
         
         for event in pygame.event.get():
